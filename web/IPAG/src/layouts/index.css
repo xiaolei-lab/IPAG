@@ -1,15 +1,30 @@
-
-.normal {
-  font-family: Georgia, sans-serif;
-  text-align: center;
+.header {
+  height: 188px;
+  background: #5b8c00;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: normal;
-  letter-spacing: -1px;
-  background: darkslateblue;
-  padding: .6em 0;
-  color: white;
-  margin: 0;
+  color: rgb(255, 255, 255);
+  font-size: 38px; 
+  line-height: 46px; 
+  margin-bottom: 12px; 
+  padding-top: 24px;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 32px;
+}
+
+.menu {
+  background: #5b8c00;
+}
+
+.container {
+  background: #ffffff;
+  padding: 12px 24px;
+  margin: 16px;
+  min-height: 480px;
 }
