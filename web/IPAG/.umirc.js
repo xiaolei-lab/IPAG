@@ -1,26 +1,26 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
-  routes: [
-    {
-      path: '/',
-      component: '../layouts/index',
-      routes: [
-        {
-          path: '/products',
-          component: './products',
-        },
-        {
-          path: '/users',
-          component: './users',
-        },
-        {
-          path: '/',
-          component: '../pages/index',
-        },
-      ],
-    },
-  ],
+  // routes: [
+  //   {
+  //     path: '/',
+  //     component: '../layouts/index',
+  //     routes: [
+  //       {
+  //         path: '/products',
+  //         component: './products',
+  //       },
+  //       {
+  //         path: '/users',
+  //         component: './users',
+  //       },
+  //       {
+  //         path: '/',
+  //         component: '../pages/index',
+  //       },
+  //     ],
+  //   },
+  // ],
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     [
@@ -28,7 +28,7 @@ export default {
       {
         antd: true,
         dva: true,
-        dynamicImport: false,
+        dynamicImport: true,
         title: 'IPAG',
         dll: false,
         routes: {
@@ -46,7 +46,7 @@ export default {
   theme: {
     'primary-color': '#7cb305',
     'link-color': '#7cb305',
-    'border-radius-base': '2px',
+    // 'border-radius-base': '2px',
   },
   // proxy: {
   //   '/api': {
