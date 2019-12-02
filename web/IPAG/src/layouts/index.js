@@ -43,11 +43,11 @@ function BasicLayout(props) {
           </Menu.Item>
         </Menu>
       </Header>
-      <Content className={styles.container}>
+      <Content className={styles.content}>
         {props.children}
       </Content>
-      <Footer style={{ textAlign: "center" }}>
-        IPAG ©2019 Created by Xiaolei Team
+      <Footer className={styles.footer}>
+        Copyright <Icon type="copyright" />2019 Created by Xiaolei Team
       </Footer>
     </Layout>
   );

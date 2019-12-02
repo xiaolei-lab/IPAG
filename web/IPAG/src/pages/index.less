@@ -1,0 +1,79 @@
+
+@import '~antd/lib/style/themes/default.less';
+
+.normal {
+  /* font-family: Georgia, sans-serif; */
+  /* margin-top: 24px; */
+}
+
+.welcome {
+  height: 256px;
+  background: url(../assets/yay.jpg) no-repeat center 0;
+  background-size: 256px 256px;
+}
+
+.list {
+  font-size: 1.2em;
+  margin: 1.8em 0 0;
+  list-style: none;
+  line-height: 1.5em;
+}
+
+.list code {
+  background: #f7f7f7;
+}
+
+.textOverflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+.templateList {
+  :global {
+    .ant-card-meta-description {
+      color: @text-color-secondary;
+      height: 66px;
+      line-height: 22px;
+      overflow: hidden;
+    }
+  }
+
+  .cardTitle {
+    // font-size: 0;
+    a {
+      color: @heading-color;
+      // margin-left: 12px;
+      line-height: 24px;
+      height: 24px;
+      display: inline-block;
+      vertical-align: top;
+      font-size: @font-size-base;
+      &:hover {
+        color: @primary-color;
+      }
+    }
+  }
+  .projectGrid {
+    width: 33.33%;
+  }
+  .projectItemContent {
+    display: flex;
+    margin-top: 8px;
+    overflow: hidden;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    .textOverflow();
+    a {
+      color: @text-color-secondary;
+      display: inline-block;
+      flex: 1 1 0;
+      .textOverflow();
+      &:hover {
+        color: @primary-color;
+      }
+    }
+  }
+}

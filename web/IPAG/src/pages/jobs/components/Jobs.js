@@ -3,7 +3,7 @@ import { Table, Pagination, Popconfirm, Badge, Icon, Input, Button } from 'antd'
 import styles from './Jobs.css';
 import { PAGE_SIZE, STATUS_MAP } from '../constants';
 import { routerRedux } from 'dva/router';
-import Highlighter from 'react-highlight-words';
+// import Highlighter from 'react-highlight-words';
 
 function Jobs({ dispatch, list: dataSource, loading, total, page: current }) {
   function deleteHandler(id) {
@@ -76,12 +76,13 @@ function Jobs({ dispatch, list: dataSource, loading, total, page: current }) {
         }
       },
       render: text => (
-        <Highlighter
-          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-          searchWords={[this.state.searchText]}
-          autoEscape
-          textToHighlight={text.toString()}
-        />
+        // <Highlighter
+        //   highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+        //   searchWords={[this.state.searchText]}
+        //   autoEscape
+        //   textToHighlight={text.toString()}
+        // />
+        text.toString()
       ),
     }
   };
