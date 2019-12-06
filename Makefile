@@ -1,3 +1,12 @@
+# OS detection
+ifeq ($(OS),Windows_NT)
+  POETRY := poetry.bat
+  SEP := ;
+else
+  POETRY := poetry
+  SEP := :
+endif
+
 # Project settings
 PROJECT := ipag
 API := api
@@ -13,18 +22,18 @@ all: exe
 
 .PHONY: run ## Start the program
 run: install
-	poetry run python $(API)/__main__.py
+	$(POETRY) run python $(API)/__main__.py
 
 # PROJECT DEPENDENCIES ########################################################
 
 .PHONY: install
 install: poetry.lock
-	poetry config settings.virtualenvs.in-project true
-	poetry install
+	$(POETRY) config settings.virtualenvs.in-project true
+	$(POETRY) install
 	@ touch $@
 
 poetry.lock: pyproject.toml
-	poetry lock
+	$(POETRY) lock
 	@ touch $@
 
 .PHONY: web
@@ -34,9 +43,9 @@ web:
 # CHECKS ######################################################################
 
 .PHONY: format
-format: install
-	poetry run isort $(API) --recursive --apply
-	poetry run black $(API)
+format:
+	$(POETRY) run isort $(API) --recursive --apply
+	$(POETRY) run black $(API)
 	@ echo
 
 # BUILD #######################################################################
@@ -47,10 +56,10 @@ EXE_FILES := dist/$(PROJECT).*
 # exe: install web .clean-build $(EXE_FILES)
 exe: install .clean-build $(EXE_FILES)
 $(EXE_FILES): $(MODULES) $(PROJECT).spec
-	poetry run pyinstaller $(PROJECT).spec --noconfirm --clean
+	$(POETRY) run pyinstaller $(PROJECT).spec --noconfirm --clean
 
 $(PROJECT).spec: $(MODULES)
-	poetry run pyi-makespec $(API)/__main__.py --add-data 'web/dist:www' -D --name=$(PROJECT)
+	$(POETRY) run pyi-makespec $(API)/__main__.py --add-data 'web/dist$(SEP)www' -F --name=$(PROJECT)
 
 # CLEANUP #####################################################################
 
